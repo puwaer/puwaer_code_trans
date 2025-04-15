@@ -55,5 +55,9 @@ docker start -i open_r1
 
 docker inatall pip 
 apt update && apt install -y git
-apt-get update
-apt-get install -y python3-dev
+pip install uv
+git-lfs --version
+apt-get install git-lfs
+
+huggingface-cli login
+wandb login
