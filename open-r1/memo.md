@@ -41,3 +41,19 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch --config_file recipes/accelerate_config
 確認用
 nvidia-smi
 nvcc --version
+
+
+
+
+docker
+docker image build -t open_r1 .
+docker container run -it --gpus all --name open_r1 -v $(pwd):/app open_r1
+
+docker start -i open_r1
+
+
+
+docker inatall pip 
+apt update && apt install -y git
+apt-get update
+apt-get install -y python3-dev
