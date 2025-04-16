@@ -43,7 +43,7 @@ import datasets
 import torch
 import transformers
 from datasets import load_dataset
-from transformers import set_seed
+from transformers import set_seed, AutoModelForCausalLM
 from transformers.trainer_utils import get_last_checkpoint
 
 from open_r1.configs import SFTConfig
@@ -125,13 +125,19 @@ def main(script_args, training_args, model_args):
         device_map=get_kbit_device_map() if quantization_config is not None else None,
         quantization_config=quantization_config,
     )
+
+    # モデルをロードしてCUDAに移動
+    logger.info(f"Loading model from {model_args.model_name_or_path}")
+    model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, **model_kwargs)
+    model = model.to('cuda')  # RTX A6000 に移動
+    logger.info("Model moved to CUDA")
     training_args.model_init_kwargs = model_kwargs
 
     ############################
     # Initialize the SFT Trainer
     ############################
     trainer = SFTTrainer(
-        model=model_args.model_name_or_path,
+        model=model,
         args=training_args,
         train_dataset=dataset[script_args.dataset_train_split],
         eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
