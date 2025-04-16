@@ -3,12 +3,14 @@ model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
 model_revision: main
 torch_dtype: bfloat16
 attn_implementation: flash_attention_2
+#attn_implementation: eager
 
 # Data training arguments
 dataset_name: open-r1/OpenR1-Math-220k
 dataset_num_proc: 48
 
 # SFT trainer config
+#fp16: true
 bf16: true
 do_eval: false
 eval_strategy: 'no'
@@ -40,5 +42,4 @@ save_strategy: "steps"
 save_steps: 100
 save_total_limit: 1
 seed: 42
-use_liger_kernel: true
-warmup_ratio: 0.05
+use_liger_kernel: false    #true
