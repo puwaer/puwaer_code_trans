@@ -35,11 +35,15 @@ accelerate launch --config_file recipes/accelerate_configs/zero2.yaml src/open_r
 CUDA_VISIBLE_DEVICES=0 accelerate launch --config_file recipes/accelerate_configs/zero2.yaml src/open_r1/sft.py \
     --config recipes/Qwen2.5-1.5B-Instruct/sft/config_demo.yaml
 
+accelerate launch --config_file recipes/accelerate_configs/single_gpu.yaml src/open_r1/sft.py \
+    --config recipes/Qwen2.5-1.5B-Instruct/sft/config_demo.yaml
+
+
 accelerate launch --config_file recipes/accelerate_configs/zero3.yaml src/open_r1/sft.py \
     --config recipes/Qwen2.5-0.5B-Instruct/sft/config_demo.yaml
 
 accelerate launch --config_file recipes/accelerate_configs/single_gpu.yaml src/open_r1/sft.py \
-    --config recipes/Qwen2.5-1.5B-Instruct/sft/config_demo.yaml
+    --config recipes/Qwen2.5-0.5B-Instruct/sft/config_demo.yaml
 
 確認用
 nvidia-smi

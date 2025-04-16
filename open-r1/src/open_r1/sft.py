@@ -122,22 +122,25 @@ def main(script_args, training_args, model_args):
         attn_implementation=model_args.attn_implementation,
         torch_dtype=torch_dtype,
         use_cache=False if training_args.gradient_checkpointing else True,
-        device_map=get_kbit_device_map() if quantization_config is not None else None,
+        #device_map=get_kbit_device_map() if quantization_config is not None else None,
+        device_map=get_kbit_device_map() if quantization_config is not None else "auto",  
         quantization_config=quantization_config,
     )
 
     # モデルをロードしてCUDAに移動
-    logger.info(f"Loading model from {model_args.model_name_or_path}")
-    model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, **model_kwargs)
-    model = model.to('cuda')  # RTX A6000 に移動
-    logger.info("Model moved to CUDA")
+    #logger.info(f"Loading model from {model_args.model_name_or_path}")
+    #model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, **model_kwargs)
+    #model = model.to('cuda')  # RTX A6000 に移動
+    #logger.info("Model moved to CUDA")
+
     training_args.model_init_kwargs = model_kwargs
 
     ############################
     # Initialize the SFT Trainer
     ############################
     trainer = SFTTrainer(
-        model=model,
+        #model=model,
+        model=model_args.model_name_or_path,
         args=training_args,
         train_dataset=dataset[script_args.dataset_train_split],
         eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
