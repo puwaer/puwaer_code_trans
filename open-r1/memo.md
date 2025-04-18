@@ -15,7 +15,6 @@ sudo apt update
 sudo apt install build-essential
 
 
-環境起動
 source openr1/bin/activate
 cd Document/puwaer_code_trans/open-r1/
 
@@ -39,29 +38,28 @@ accelerate launch --config_file recipes/accelerate_configs/single_gpu.yaml src/o
     --config recipes/Qwen2.5-1.5B-Instruct/sft/config_demo.yaml
 
 
-accelerate launch --config_file recipes/accelerate_configs/zero3.yaml src/open_r1/sft.py \
-    --config recipes/Qwen2.5-0.5B-Instruct/sft/config_demo.yaml
-
-accelerate launch --config_file recipes/accelerate_configs/single_gpu.yaml src/open_r1/sft.py \
-    --config recipes/Qwen2.5-0.5B-Instruct/sft/config_demo.yaml
-
 確認用
 nvidia-smi
 nvcc --version
 
 
 
-
-docker
+dockerビルド
 docker image build -t open_r1 .
 docker container run -it --gpus all --name open_r1 -v $(pwd):/app open_r1
+uv venv openr1 --python 3.11 && source openr1/bin/activate && uv pip install --upgrade pip
+uv pip install vllm==0.8.3
+uv pip install setuptools && uv pip install flash-attn --no-build-isolation
 
+
+docker起動
 docker start -i open_r1
 source openr1/bin/activate
 
 
 
-docker inatall pip 
+
+その他のコマンド
 apt update && apt install -y git
 pip install uv
 git-lfs --version
