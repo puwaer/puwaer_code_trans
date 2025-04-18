@@ -4,3 +4,8 @@ conda activate rllm
 cd /Document/puwaer_code_trans/rllm
 pip install -e ./verl
 pip install -e .
+
+
+起動
+conda activate rllm
+cd rllm
