@@ -1,5 +1,6 @@
 src
 openr1
 wandb
-data
 logs
+
+Qwen2.5-1.5B-Open-R1-Distill
