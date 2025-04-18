@@ -1,7 +1,7 @@
 conda create -n rllm python=3.10 -y
 conda activate rllm
 
-cd /Document/puwaer_code_trans/rllm
+cd Document/puwaer_code_trans/rllm
 pip install -e ./verl
 pip install -e .
 
@@ -12,5 +12,7 @@ cd rllm
 
 
 export MODEL_PATH="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
-chmod +x ./scripts/deepscaler/train/deepscaler_1.5b_8k.sh
+chmod +777 ./scripts/deepscaler/train/deepscaler_1.5b_8k.sh
 ./scripts/deepscaler/train/deepscaler_1.5b_8k.sh --model $MODEL_PATH
+
+
