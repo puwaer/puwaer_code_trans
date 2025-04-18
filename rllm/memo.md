@@ -9,3 +9,8 @@ pip install -e .
 起動
 conda activate rllm
 cd rllm
+
+
+export MODEL_PATH="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+chmod +x ./scripts/deepscaler/train/deepscaler_1.5b_8k.sh
+./scripts/deepscaler/train/deepscaler_1.5b_8k.sh --model $MODEL_PATH
