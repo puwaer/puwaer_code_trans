@@ -31,7 +31,7 @@ python3 -m verl.trainer.main_ppo \
     data.train_batch_size=1 \
     data.val_batch_size=1 \
     data.max_prompt_length=1024  \
-    data.max_response_length=8192 \
+    data.max_response_length=4096 \
     actor_rollout_ref.model.path=$MODEL_PATH \
     actor_rollout_ref.actor.optim.lr=1e-6 \
     actor_rollout_ref.model.use_remove_padding=True \
@@ -52,7 +52,7 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.gpu_memory_utilization=0.8 \
     actor_rollout_ref.rollout.n=1 \
     actor_rollout_ref.rollout.n_val=1 \
-    actor_rollout_ref.ref.fsdp_config.param_offload=False \
+    actor_rollout_ref.ref.fsdp_config.param_offload=True \
     algorithm.kl_ctrl.kl_coef=0.001 \
     trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
