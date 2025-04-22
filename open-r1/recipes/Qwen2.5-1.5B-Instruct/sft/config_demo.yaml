@@ -18,7 +18,7 @@ gradient_accumulation_steps: 1
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: false
-hub_model_id: Qwen2.5-1.5B-Open-R1-Distill
+hub_model_id: Qwen2.5-1.5B-Open-R1-Distill-2
 hub_strategy: every_save
 learning_rate: 5.0e-05
 log_level: info
@@ -31,7 +31,7 @@ packing: true
 max_length: 1024      #16384
 max_steps: -1
 num_train_epochs: 1
-output_dir: data/Qwen2.5-1.5B-Open-R1-Distill
+output_dir: data/Qwen2.5-1.5B-Open-R1-Distill-2
 overwrite_output_dir: true
 per_device_eval_batch_size: 8         #16
 per_device_train_batch_size: 8        #16
