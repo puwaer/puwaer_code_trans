@@ -70,3 +70,11 @@ RUN pip uninstall -y pynvml nvidia-ml-py && \
 # Reset pip config
 RUN pip config unset global.index-url && \
     pip config unset global.extra-index-url
+
+
+# 作業ディレクトリを設定
+WORKDIR /app
+
+# スクリプトファイルをコピー
+COPY ./ /app/
+CMD ["/bin/bash"]
