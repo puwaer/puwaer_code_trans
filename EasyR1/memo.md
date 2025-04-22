@@ -12,9 +12,13 @@ pip install -e .
 
 docker起動
 docker start -i easy-r1
+ping google.com
+ping cdn-lfs-us-1.hf.co
+cat /etc/resolv.conf
+
 
 
 実行コマンド
-bash examples/qwen2_5_vl_7b_geo3k_grpo.sh
+bash examples/qwen2_5_vl_3b_geo3k_grpo_test.sh
 
 

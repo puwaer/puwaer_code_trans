@@ -72,6 +72,10 @@ RUN pip config unset global.index-url && \
     pip config unset global.extra-index-url
 
 
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+ENV PATH=/usr/local/cuda/bin:$PATH
+    
+
 # 作業ディレクトリを設定
 WORKDIR /app
 
