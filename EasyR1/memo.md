@@ -6,15 +6,19 @@ docker run -it --rm --gpus all \
 
 dockerビルド
 docker image build -t easy-r1 .
-docker container run -it --gpus all --name easy-r1 -v $(pwd):/app easy-r1
+docker container run -it --gpus all --shm-size=8g --name easy-r1 -v $(pwd):/app easy-r1
 
 pip install -e .
-
-docker起動
-docker start -i easy-r1
 ping google.com
 ping cdn-lfs-us-1.hf.co
 cat /etc/resolv.conf
+
+wandb login
+
+
+
+docker起動
+docker start -i easy-r1
 
 
 
