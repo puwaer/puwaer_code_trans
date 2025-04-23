@@ -5,6 +5,8 @@ docker run -it --rm --gpus all \
 
 docker run --gpus all -it --rm -p 8000:8000 hiyouga/verl:ngc-th2.6.0-cu126-vllm0.8.3-flashinfer0.2.2-cxx11abi0
 
+
+実行コマンド
 docker container run -it --gpus all  --name verl-container -v $(pwd):/workspace hiyouga/verl:ngc-th2.6.0-cu126-vllm0.8.3-flashinfer0.2.2-cxx11abi0
 
 docker start -ai verl-container
