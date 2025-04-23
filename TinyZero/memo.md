@@ -1,2 +1,19 @@
 conda環境構築
 conda create -n tiny_zero python=3.9
+conda activate tiny_zero
+
+pip install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+pip3 install vllm==0.6.3 
+pip3 install ray
+
+cd Document/puwaer_code_trans/TinyZero
+pip install -e .
+
+pip3 install flash-attn --no-build-isolation
+pip install wandb IPython matplotlib
+
+
+実行コマンド
+conda activate tiny_zero
+
+python ./examples/data_preprocess/countdown.py --local_dir ./dataset

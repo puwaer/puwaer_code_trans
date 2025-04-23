@@ -6,3 +6,5 @@ logs
 Qwen2.5-1.5B-Open-R1-Distill
 
 rllm/rllm/data/**/*.json
+
+dataset
