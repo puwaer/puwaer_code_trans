@@ -16,4 +16,18 @@ pip install wandb IPython matplotlib
 実行コマンド
 conda activate tiny_zero
 
+
 python ./examples/data_preprocess/countdown.py --local_dir ./dataset
+
+
+学習コマンド
+export N_GPUS=1
+export BASE_MODEL=base_model/Qwen2.5-0.5B-Instruct
+export DATA_DIR=dataset
+export ROLLOUT_TP_SIZE=1
+export EXPERIMENT_NAME=countdown-qwen2.5-0.5b_test
+export VLLM_ATTENTION_BACKEND=XFORMERS
+
+chmod +777 ./scripts/train_tiny_zero_qwen_1.5b.sh
+bash ./scripts/train_tiny_zero.sh
+
