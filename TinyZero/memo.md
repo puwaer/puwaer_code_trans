@@ -22,6 +22,8 @@ python ./examples/data_preprocess/countdown.py --local_dir ./dataset
 
 学習コマンド
 conda activate tiny_zero
+
+cd Document/puwaer_code_trans/TinyZero
 cd TinyZero
 
 export N_GPUS=1
