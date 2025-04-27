@@ -56,12 +56,14 @@ j26001 is not in the sudoers file.  This incident will be reported.
 0018:00:00.0 PCI bridge: NVIDIA Corporation Device 22b9
 
 
-miyabiでllmの学習用の環境構築を行っているのですが以下のようなことになっており困っています。
-どうすればいいのでしょうか？　また、別の解決方法があるのでしょうか？
+現在、MiyabiでLLMの学習環境を構築中ですが、以下のような問題に直面しており、困っています。
+どうすればいいのでしょうか？ また、根本的なアプローチに誤りがあり、別の解決策がある場合は教えていただきたいです。
 
-nvidia-smiコマンドで(command not found)となり、NVIDIAドライバがインストールされていなくgpuを認識していないのに、nvcc --versionコマンドよりcuda 12.6のコンパイラーだけがある状態になっている。
+nvidia-smiコマンドを実行すると「command not found」と表示され、NVIDIAドライバがインストールされていないためGPUが認識されていません。
+一方、nvcc --versionコマンドではCUDA 12.6のコンパイラがインストールされていることが確認できました。
+このようなことから、NVIDIAドライバがインストールされていなくgpuを認識していないのに、cuda 12.6のみある状態になっています。
 
-以下のnvidiaのドライバーをインストールするために、sudoコマンドを使用したいのですが、権限がありません。
+このようなことから、以下のnvidiaのドライバーをインストールするために、sudoコマンドを使用したいのですが、私のアカウントには権限がありませんでした。
 
 システム情報
 OS: Rocky Linux 9（ログインノードは Red Hat Enterprise Linux 9）
