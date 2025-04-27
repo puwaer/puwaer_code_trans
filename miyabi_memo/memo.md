@@ -7,6 +7,9 @@ bash Miniconda3-latest-Linux-aarch64.sh
 conda create -n rllm python=3.10 -y
 conda activate rllm
 
+conda clean --all
+
+
 cd ./puwaer_code_trans/rllm
 
 python setup.py install
@@ -30,4 +33,5 @@ Successfully installed MarkupSafe-3.0.2 filelock-3.18.0 fsspec-2025.3.2 jinja2-3
 conda install -c nvidia/label/cuda-12.1.0 cuda-toolkit -y
 conda install -c conda-forge cudnn=8.9.7 nccl=2.18.3 mpi4py=3.1.6 -y
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 Looking in indexes: https://download.pytorch.org/whl/cu121
