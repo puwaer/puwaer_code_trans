@@ -72,6 +72,8 @@ uv pip install /work/gj26/j26001/wheels/flash_attn-2.7.4.post1-cp310-cp310-linux
 cd puwaer_code_trans/TinyZero
 pip install -e .
 
+uv pip install wandb IPython matplotlib
+
 
 miyabi実行コマンド
 python ./examples/data_preprocess/countdown.py --local_dir ./dataset/countdown
