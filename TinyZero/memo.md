@@ -71,3 +71,17 @@ uv pip install /work/gj26/j26001/wheels/flash_attn-2.7.4.post1-cp310-cp310-linux
 
 cd puwaer_code_trans/TinyZero
 pip install -e .
+
+
+miyabi実行コマンド
+python ./examples/data_preprocess/countdown.py --local_dir ./dataset/countdown
+
+export N_GPUS=1
+export BASE_MODEL=base_model/Qwen2.5-1.5B-Instruct
+export DATA_DIR=dataset/countdown
+export ROLLOUT_TP_SIZE=1
+export EXPERIMENT_NAME=countdown-qwen2.5-1.5b_test_2
+export VLLM_ATTENTION_BACKEND=XFORMERS
+
+chmod +777 ./scripts/train_tiny_zero_qwen_1.5b.sh
+bash ./scripts/train_tiny_zero_qwen_1.5b.sh
